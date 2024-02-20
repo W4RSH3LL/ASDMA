@@ -1,0 +1,12 @@
+version: '3'
+services:
+  service1:
+    image: ubuntu
+
+  service2: 
+    image: rapidfort/flaskapp
+  
+  monitoring:
+    image: portainer
+
+  
