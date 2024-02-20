@@ -1,0 +1,59 @@
+- name: ADSMA
+  hosts: localhost
+  become: true
+  tasks:
+  # Mise à jour des Repositories 
+    - name: Update / Upgrade Repositories
+      shell: sudo apt-get update && sudo apt-get upgrade
+      register: repositories_version
+      ignore_errors: yes
+
+  # Vérification que la MAJ des Repositories a été effectuée  
+    - debug:
+        msg: "Repositories updated / upgraded successfully. Version: {{ repositories_version.stdout }}"
+      when: repositories_version.rc == 0
+
+  # Installation des paquets nécessaires pour Docker  
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+      changed_when: true
+      register: system_packages_result
+      
+  # Vérification que les paquets nécessaires pour Docker ont été installés
+    - debug:
+        msg: "System packages installed successfully."
+      when: system_packages_result.changed
+      
+  # Ajout de la clé GPG pour Docker
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+  # Ajout du Repositoire de Docker
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+  # Installation de Docker  
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+  # Installation du module Docker pour Python
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
