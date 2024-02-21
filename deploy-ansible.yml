@@ -80,6 +80,7 @@
     # Update Docker
     - name: Update Docker
       command: apt-get install docker-ce docker-ce-cli containerd.io --yes
+      warn: false
 
     # Démarrage du docker-compose
     - name: Launch Docker Compose
