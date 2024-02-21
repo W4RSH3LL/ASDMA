@@ -18,16 +18,21 @@ ansible-playbook deploy-ansible.yml -i inventory.ini
 ```
 ## Functionnalities :
 ### deploy-ansible.yml
-- [.1] Updates the package manager
-- [.2] Installs the necessary dependencies for Docker
-- [.3] Installs Docker
-- [.4] Starts the Docker-Compose
+- [.1] Installs the necessary dependencies for Docker
+- [.2] Add Docker GPG apt Key
+- [.3] Add Docker Repository
+- [.4] Update apt and install docker-ce
+- [.5] Install Docker Module for Python
+- [.6] Clone Docker Compose configuration from GitHub (specific branch)
+- [.7] Install docker-compose
+- [.8] Install Docker SDK for Python
+- [.9] Update Docker
+- [.10] Launch Docker Compose
 ------------------------------------------------
 ### docker-compose.yml
-- 
-- 
-- 
-- 
+- db: image: mysql:8.3
+- webapp: build: ./WebApp_Papeterie
+- api: build: ./API
 ------------------------------------------------
 ### inventory.ini
 - Contains inventory of hosts that Ansible will manage.
