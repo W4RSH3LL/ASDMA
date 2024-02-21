@@ -73,3 +73,5 @@
     # Exécution du script de surveillance
     #- name: Run monitoring script
     #  shell: ./Monitoring.sh
+
+    # Démarrage du docker-compose
