@@ -1,0 +1,75 @@
+# ansible-deploy.yml
+
+# Tâches de déploiement pour le projet ADSMA
+
+- name: ADSMA
+  hosts: all
+  become: true
+  become_method: sudo  # Utilise sudo pour l'élévation des privilèges
+  become_user: root     # Spécifie éventuellement l'utilisateur à devenir
+  tasks:
+    # Affichage du Titre du Script
+    - name: Print ASCII art
+      debug:
+        msg: |
+          | [+] ADSMA Created by Romain.T, Dominique.G and Samuel.M [+]
+
+    # Mise à jour et mise à niveau des dépôts du gestionnaire de paquets
+    - name: Update / Upgrade Repositories
+      shell: apt-get update && apt-get upgrade
+      register: repositories_version
+      ignore_errors: yes
+
+    # Affiche un message de succès si la mise à jour et la mise à niveau des dépôts se sont déroulées sans erreur
+    - debug:
+        msg: "Repositories updated / upgraded successfully. Version: {{ repositories_version.stdout }}"
+      when: repositories_version.rc == 0
+
+    # Installation des paquets système requis
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+      changed_when: true
+      register: system_packages_result
+
+    # Affiche un message de succès si des paquets système ont été installés
+    - debug:
+        msg: "System packages installed successfully."
+      when: system_packages_result.changed
+
+    # Ajout de la clé GPG Docker au gestionnaire de paquets apt
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    # Ajout du dépôt Docker aux sources apt
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    # Mise à jour d'apt et installation de docker-ce
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    # Installation du module Docker pour Python via pip
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    # Exécution du script de surveillance
+    - name: Run monitoring script
+      shell: ./Monitoring.sh
