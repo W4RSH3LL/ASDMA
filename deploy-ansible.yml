@@ -71,5 +71,18 @@
         name: docker
 
     # Exécution du script de surveillance
-    - name: Run monitoring script
-      shell: ./Monitoring.sh
+    #- name: Run monitoring script
+    #  shell: ./Monitoring.sh
+
+    # Git clone du projet Angular des Devops
+    - name: Clone Docker Compose configuration from GitHub
+      git:
+        repo: https://github.com/EPSI-Leo/angular_project/tree/DevOps
+        dest: /
+      register: git_output
+
+    # Demarrage du docker-compose
+    - name: Launch Docker Compose
+      docker_compose:
+        project_src: /docker-compose.yml
+        state: present
