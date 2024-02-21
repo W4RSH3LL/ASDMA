@@ -71,5 +71,5 @@
         name: docker
 
     # Exécution du script de surveillance
-    - name: Run monitoring script
-      shell: ./Monitoring.sh
+    #- name: Run monitoring script
+    #  shell: ./Monitoring.sh
