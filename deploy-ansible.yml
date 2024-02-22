@@ -33,6 +33,12 @@
         msg: "System packages installed successfully."
       when: system_packages_result.changed
 
+    # Installation de python3-pip
+    - name: Ensure python3-pip is installed
+      apt:
+        name: python3-pip
+        state: present
+        
     # Ajout de la clé GPG Docker au gestionnaire de paquets apt
     - name: Add Docker GPG apt Key
       apt_key:
