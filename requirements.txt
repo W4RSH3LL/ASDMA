@@ -1,1 +1,2 @@
-pip install ansible
+ansible
+locust

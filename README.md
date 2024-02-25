@@ -7,7 +7,9 @@
 - docker-compose.yml
 - inventory.ini
 - requirements.txt
+- basic-setup.sh
 - supervision.py
+- locustfile.py
 
 ## Installation :
 ```
@@ -16,6 +18,27 @@ cd ADSMA/
 pip install -r requirements.txt
 ansible-playbook deploy-ansible.yml -i inventory.ini
 ```
+## Access graphana dashboard
+All data and dashboard are available at : http://localhost:3000/?orgId=1
+
+## Portainer console 
+Portainer is available at : https://localhost:9443/#!/init/admin
+
+## Run a load test against the infrastructure
+pwd
+C:\Users\user\ASDMA
+pip install -r requirements.txt
+locust 
+Go to http://localhost:8089/ to run load tests
+![alt text](img\loadtest_example.png)
+
+## All available services address
+### Graphana    http://localhost:3000/
+### Locust      http://localhost:8089/
+### Papeterie   http://localhost:3333/
+### Portainer   https://localhost:9443/
+### Prometheus  http://localhost:9090/
+
 ## Functionnalities :
 ### deploy-ansible.yml
 - [.1] Installs the necessary dependencies for Docker
@@ -33,7 +56,22 @@ ansible-playbook deploy-ansible.yml -i inventory.ini
 - db: image: mysql:8.3
 - webapp: build: ./WebApp_Papeterie
 - api: build: ./API
+- monitoring: portainer/portainer-ce:latest
+- prometheus : prom/prometheus
+- graphana : grafana/grafana
+- cadvisor: gcr.io/cadvisor/cadvisor:latest
 ------------------------------------------------
 ### inventory.ini
 - Contains inventory of hosts that Ansible will manage.
 ------------------------------------------------
+### prometheus/prometheus.yml 
+- Defined sensor prometheus as to query (cadvisor for docker, and him self)
+------------------------------------------------
+### portainer (folder)
+- Contains all portainer configurations files
+------------------------------------------------
+### grapfana (folder)
+- Contains all grafana configurations files and dashboard
+------------------------------------------------
+### nginxed (folder)
+- Contain the docker file for deploy an Nginx instance with SSH (PermitRoot yes) activated. 
