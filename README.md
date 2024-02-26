@@ -18,26 +18,24 @@ cd ADSMA/
 pip install -r requirements.txt
 ansible-playbook deploy-ansible.yml -i inventory.ini
 ```
-## Access graphana dashboard
-All data and dashboard are available at : http://localhost:3000/?orgId=1
-
-## Portainer console 
-Portainer is available at : https://localhost:9443/#!/init/admin
-
 ## Run a load test against the infrastructure
+```
 pwd
-C:\Users\user\ASDMA
+# C:\Users\user\ASDMA
 pip install -r requirements.txt
 locust 
-Go to http://localhost:8089/ to run load tests
-![alt text](img\loadtest_example.png)
+# Go to http://localhost:8089/ to run load tests
+```
+![alt text](img/loadtest_example.png)
 
 ## All available services address
-### Graphana    http://localhost:3000/
-### Locust      http://localhost:8089/
-### Papeterie   http://localhost:3333/
-### Portainer   https://localhost:9443/
-### Prometheus  http://localhost:9090/
+| Service  | Address          |
+| :--------------- |:---------------|
+| Graphana    |http://localhost:3000/|
+| Locust    |http://localhost:8089/|
+| Papeterie   |http://localhost:3333/|
+|Portainer   |https://localhost:9443/|
+| Prometheus  |http://localhost:9090/|
 
 ## Functionnalities :
 ### deploy-ansible.yml
