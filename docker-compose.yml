@@ -2,6 +2,7 @@ version: '3'
 services: 
   db: #Récupération depuis le docker-compose de angular-project 
     image: mysql:8.3
+    container_name: angular_project-db-1
     restart: always
     environment:
       MYSQL_DATABASE: papeterie
@@ -9,18 +10,20 @@ services:
       MYSQL_PASSWORD: moi123
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
-      - /c/dev/bdd_papeterie:/docker-entrypoint-initdb.d
+      - ./bdd_papeterie:/docker-entrypoint-initdb.d
   
   # Il est possible de dupliquer ce service via deploy: mode: replicated replicas: 2 endpoint_mode:vip 
   webapp: # Les deux services ci-dessous sont issu des Docker Images de CDA uploadé sur mon docker.io
-    image: dominiqueg/angular-webapp:latest
+    image: meynierleo/webapp-papeterie:latest
+    container_name: angular_project-webapp-1
     ports:
       - "3333:80"
     depends_on:
       - api    
   
   api: 
-    image: dominiqueg/angular-api:latest
+    image: meynierleo/api-papeterie:latest
+    container_name: angular_project-api-1
     ports:
       - "8080:8080"
       - "8081:8081"
