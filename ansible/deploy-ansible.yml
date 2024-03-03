@@ -62,7 +62,8 @@
     - name: Install Docker Module for Python
       pip:
         name: docker
-
+    
+    # A modifier on va récupérer le contenue depuis notre git https://github.com/W4RSH3LL/ASDMA.git - DG 
     # Git clone du projet Angular des Devops (specific branch)
     - name: Clone Docker Compose configuration from GitHub (specific branch)
       git:
