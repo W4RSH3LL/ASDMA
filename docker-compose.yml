@@ -11,7 +11,6 @@ services:
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
       - ./bdd_papeterie:/docker-entrypoint-initdb.d
-      - ./bdd_conf/my.cnf:/etc/mysql/my.cnf
     ports:
       - "3306:3306"
   
