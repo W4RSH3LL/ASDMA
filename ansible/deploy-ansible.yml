@@ -67,9 +67,8 @@
     # Git clone du projet Angular des Devops (specific branch)
     - name: Clone Docker Compose configuration from GitHub (specific branch)
       git:
-        repo: https://github.com/EPSI-Leo/angular_project.git
-        dest: /opt/angular_project
-        version: DevOps
+        repo: https://github.com/W4RSH3LL/ASDMA.git
+        dest: /opt/ASDMA 
       register: git_output
 
     # Installation de docker-compose
@@ -91,5 +90,5 @@
     # Démarrage du docker-compose
     - name: Launch Docker Compose
       docker_compose:
-        project_src: /opt/angular_project  # Specify the correct filename here
+        project_src: /opt/ASDMA  # Specify the correct filename here
         state: present
