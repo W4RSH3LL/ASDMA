@@ -11,6 +11,9 @@ services:
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
       - ./bdd_papeterie:/docker-entrypoint-initdb.d
+      - ./bdd_conf/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - "3306:3306"
   
   # Il est possible de dupliquer ce service via deploy: mode: replicated replicas: 2 endpoint_mode:vip 
   webapp: # Les deux services ci-dessous sont issu des Docker Images de CDA uploadé sur mon docker.io
@@ -20,6 +23,7 @@ services:
       - "3333:80"
     depends_on:
       - api    
+    
   
   api: 
     image: meynierleo/api-papeterie:latest
