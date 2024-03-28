@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-03-12T20:45:58.134Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="ec3EP6pvBXAoRp_YzIS-" version="24.0.5" type="device" pages="12">
+<mxfile host="app.diagrams.net" modified="2024-03-12T22:34:23.869Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="1kobrN7IT2qZkpQJvumG" version="24.0.5" type="device" pages="12">
   <diagram id="6hiZE-scxlc1er5gQ2BV" name="Public">
-    <mxGraphModel dx="2721" dy="889" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#114B5F" math="0" shadow="0">
+    <mxGraphModel dx="3410" dy="1252" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#114B5F" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -176,7 +176,7 @@
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-12" value="Grafana a détecter une surcharge" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rounded=1;dashed=1;comic=0;strokeColor=#028090;strokeWidth=3;fontFamily=Helvetica;fontSize=17;fontColor=#E4FDE1;labelBackgroundColor=#114B5F;fillColor=#F45B69;" vertex="1" connectable="0" parent="uCM0n_0QPtXsAJgLfFRR-9">
           <mxGeometry x="0.1537" y="1" relative="1" as="geometry">
-            <mxPoint x="25" y="-1" as="offset" />
+            <mxPoint x="21" y="-1" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="08E1WJkrHVFObMCXVNQh-67" value="&lt;font style=&quot;--darkreader-inline-color: #e8e6e3;&quot; data-darkreader-inline-color=&quot;&quot; color=&quot;#ffffff&quot;&gt;Grafana&lt;/font&gt;" style="image;aspect=fixed;html=1;points=[];align=left;fontSize=15;image=img/lib/azure2/analytics/Azure_Workbooks.svg;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;labelBackgroundColor=none;" parent="1" vertex="1">
@@ -195,7 +195,7 @@
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-14" value="Promox enclenche la création d&#39;une nouvelle VM" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontSize=15;" vertex="1" connectable="0" parent="uCM0n_0QPtXsAJgLfFRR-13">
           <mxGeometry x="-0.0971" y="-54" relative="1" as="geometry">
-            <mxPoint x="144" y="-100" as="offset" />
+            <mxPoint x="223" y="-109" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="dmAFzOVbwKDfcIKtmEE4-3" value="Proxmox" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=23;image=img/lib/azure2/networking/Proximity_Placement_Groups.svg;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;labelBackgroundColor=none;fontColor=#FFFFFF;" parent="1" vertex="1">
@@ -207,22 +207,25 @@
             <mxPoint x="202.9620000000002" y="236.00199999999995" as="targetPoint" />
             <Array as="points">
               <mxPoint x="204" y="503" />
-              <mxPoint x="186" y="503" />
-              <mxPoint x="186" y="386" />
-              <mxPoint x="203" y="386" />
+              <mxPoint x="203" y="503" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="66dm05_sBVPZtqxJDesV-3" value="Demande de création d&#39;une VM" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=19;" vertex="1" connectable="0" parent="66dm05_sBVPZtqxJDesV-2">
           <mxGeometry x="0.0431" y="47" relative="1" as="geometry">
-            <mxPoint x="-189" y="560" as="offset" />
+            <mxPoint x="-110" y="514" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;comic=0;strokeColor=#028090;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=#E4FDE1;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;flowAnimation=1;curved=1;fillColor=#F45B69;" edge="1" parent="1" source="uCM0n_0QPtXsAJgLfFRR-4" target="uCM0n_0QPtXsAJgLfFRR-5">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="204" y="785" />
+              <mxPoint x="204" y="785" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-4" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/management_governance/Automation_Accounts.svg;" vertex="1" parent="1">
-          <mxGeometry x="152" y="864.5" width="68" height="68" as="geometry" />
+          <mxGeometry x="183.93" y="878.5" width="40" height="40" as="geometry" />
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-5" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/other/Azure_Video_Indexer.svg;rotation=-90;" vertex="1" parent="1">
           <mxGeometry x="192" y="520" width="23.87" height="27.05" as="geometry" />
@@ -236,18 +239,17 @@
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-15" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="uCM0n_0QPtXsAJgLfFRR-16">
           <mxGeometry x="27.799999999999955" y="8.050000000000068" width="35" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="uCM0n_0QPtXsAJgLfFRR-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.04;entryY=0.304;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;comic=0;strokeColor=#028090;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=#E4FDE1;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;flowAnimation=1;curved=1;fillColor=#F45B69;" edge="1" parent="1" source="dmAFzOVbwKDfcIKtmEE4-1" target="dmAFzOVbwKDfcIKtmEE4-3">
+        <mxCell id="uCM0n_0QPtXsAJgLfFRR-17" value="s" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.04;entryY=0.304;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;comic=0;strokeColor=#028090;strokeWidth=3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=#E4FDE1;labelBackgroundColor=#114B5F;endArrow=none;endFill=0;flowAnimation=1;curved=1;fillColor=#F45B69;" edge="1" parent="1" source="dmAFzOVbwKDfcIKtmEE4-1" target="dmAFzOVbwKDfcIKtmEE4-3">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="741" y="1026" />
-              <mxPoint x="741" y="178" />
-              <mxPoint x="238" y="178" />
+              <mxPoint x="727" y="1026" />
+              <mxPoint x="727" y="175" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="uCM0n_0QPtXsAJgLfFRR-18" value="La machine renvoie sa clé SSH pour recevoir le playbook Ansible" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=13;" vertex="1" connectable="0" parent="uCM0n_0QPtXsAJgLfFRR-17">
           <mxGeometry x="0.1382" y="27" relative="1" as="geometry">
-            <mxPoint x="-220" y="-39" as="offset" />
+            <mxPoint x="-263" y="-78" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>

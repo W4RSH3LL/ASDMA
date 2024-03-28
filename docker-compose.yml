@@ -10,6 +10,7 @@ services:
       MYSQL_PASSWORD: moi123
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
+      - ./bdd_configuration:/etc
       - ./bdd_papeterie:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
