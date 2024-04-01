@@ -19,10 +19,10 @@ jobs:
     - name: Installing dependencies
       run: sudo apt-get install -y git python3-pip
 
-    - name: Installing requirements.txt
+    - name: Installing Python dependencies
       run: pip install -r requirements.txt
-      working-directory: ASDMA
 
     - name: Deploying ansible-playbook
       run: ansible-playbook deploy-ansible.yml -i inventory.ini
-      working-directory: ASDMA/ansible
+      working-directory: ansible
+      # Adjust this path if your ansible directory is located elsewhere.
