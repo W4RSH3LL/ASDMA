@@ -22,8 +22,8 @@ jobs:
       - name: Installing Python dependencies
         run: pip install -r requirements.txt
 
-# Deploying are ainsible playbook
-  deploy:
+# Deploying and verify
+  deployAndVerify:
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -33,16 +33,9 @@ jobs:
         run: ansible-playbook deploy-ansible.yml -i inventory.ini
         working-directory: ansible
 
-# Verify everything is properly running
-# Deploying are ainsible playbook
-  verify:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
+      # C'était dans un job différent à la base mais les containers sont pas persistents à travers les différents job. Donc j'ai combiné "Deploy" et "Vérif" en 1 job.
       - name: Verifying Docker Containers are running
         run: docker ps
 
-      #- name: Connecting to the webpage of our container
-      #  run: firefox -u "http://localhost:"
+      - name: Checking the web service
+        run: curl -I http://localhost:8080
