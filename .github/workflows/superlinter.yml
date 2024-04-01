@@ -14,5 +14,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build project
       run: echo "Building Project..."
+    - run: sudo apt-get update && sudo apt-get upgrade -y
+    - run: sudo apt-get install -y git python3-pip
+    - run: cd /opt
+    - run: git clone https://github.com/W4RSH3LL/ASDMA.git
+    - run: cd ASDMA
+    - run: pip install -r requirements.txt
+    - run: cd ansible
+    - run: ansible-playbook deploy-ansible.yml -i inventory.ini
     - name: Run tests
       run: echo "Running Tests"
