@@ -33,11 +33,11 @@ jobs:
     - name: Changing directory to /ansible
       run: cd ansible && pwd && ls
 
-    - name: Debugging
-      run: cd ../.. && pwd && ls
-
     - name: Deploying are ansible-playbook
-      run: ansible-playbook deploy-ansible.yml -i inventory.ini
+      run: ansible-playbook deploy-ansible.yml -i inventory.ini && ls
+      
+    - name: Debugging
+      run: cd .. && pwd && ls
     
     - name: Run tests
       run: echo "Running Tests"
