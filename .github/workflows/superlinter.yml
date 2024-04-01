@@ -32,3 +32,17 @@ jobs:
       - name: Deploying ansible-playbook
         run: ansible-playbook deploy-ansible.yml -i inventory.ini
         working-directory: ansible
+
+# Verify everything is properly running
+# Deploying are ainsible playbook
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Verifying Docker Containers are running
+        run: docker ps
+
+      #- name: Connecting to the webpage of our container
+      #  run: firefox -u "http://localhost:"
