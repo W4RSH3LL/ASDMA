@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Updating and Installing the basic packages
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Updating Repositories
+        run: sudo apt-get update && sudo apt-get upgrade -y
+        
+      - name: Installing dependencies
+        run: sudo apt-get install -y git python3-pip
+
+      - name: Installing Python dependencies
+        run: pip install -r requirements.txt
+
+# Deploying and verify
+  deployAndVerify:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploying ansible-playbook
+        run: ansible-playbook deploy-ansible.yml -i inventory.ini
+        working-directory: ansible
+
+      # C'était dans un job différent à la base mais les containers sont pas persistents à travers les différents job. Donc j'ai combiné "Deploy" et "Vérif" en 1 job.
+      - name: Verifying Docker Containers are running
+        run: docker ps
