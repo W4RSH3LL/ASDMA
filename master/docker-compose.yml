@@ -2,7 +2,7 @@ version: '3'
 services: 
   db: #Récupération depuis le docker-compose de angular-project 
     image: mysql:8.3
-    container_name: angular_project-db-1
+    container_name: angular_project-db-1-master
     restart: always
     environment:
       MYSQL_DATABASE: papeterie
@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: moi123
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
-      - ./bdd_configuration:/etc
+      - ./bdd_configuration/master:/etc/mysql/conf.d
       - ./bdd_papeterie:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
