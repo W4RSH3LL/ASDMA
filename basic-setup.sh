@@ -6,4 +6,4 @@ git clone https://github.com/W4RSH3LL/ASDMA.git
 cd ASDMA
 pip install -r requirements.txt
 cd ansible
-ansible-playbook deploy-ansible.yml -i inventory.ini
+ansible-playbook deploy-ansible.yml -i inventory.ini -i hosts.ini

@@ -2,7 +2,7 @@ version: '3'
 services: 
   db: #Récupération depuis le docker-compose de angular-project 
     image: mysql:8.3
-    container_name: angular_project-db-1-master
+    container_name: angular_project-db-1
     restart: always
     environment:
       MYSQL_DATABASE: papeterie
@@ -10,8 +10,8 @@ services:
       MYSQL_PASSWORD: moi123
       MYSQL_ROOT_PASSWORD: aaaaaaaa
     volumes:
-      - ./bdd_configuration/master:/etc/mysql/conf.d
-      - ./bdd_papeterie:/docker-entrypoint-initdb.d
+      - ../bdd_configuration/master:/etc/mysql/conf.d
+      - ../bdd_papeterie:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
   
@@ -40,21 +40,21 @@ services:
     ports:
       - 9443:9443
     volumes:
-        - ./portainer:/data
+        - ../portainer:/data
         - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
   prometheus:
     image: prom/prometheus
     volumes:
-      - ./prometheus:/etc/prometheus
+      - ../prometheus:/etc/prometheus
     ports:
       - "9090:9090"
 
   grafana:
     image: grafana/grafana
     volumes:
-      - ./grafana:/var/lib/grafana
+      - ../grafana:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=#ASRBD@ 
     ports:
